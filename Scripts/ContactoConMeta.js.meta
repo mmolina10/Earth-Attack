@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 4f95994341e77da4c92235630e3c82f2
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - scriptVida: {instanceID: 0}
+  - textura: {fileID: 2800000, guid: 819197b867e33c547b147f48d3c2ca87, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
