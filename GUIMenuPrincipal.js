@@ -10,7 +10,6 @@ var PosX : int = 500;
 var PosY : int = 600;
 public var textura : Texture;
 function Start () {
-	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	AudioListener.volume = 1;
 }
 

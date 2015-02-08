@@ -5,7 +5,6 @@ private var velocidad : int = 170;
 public var velocidadCamara : int = 80;
 var scriptMenuPrincipal : GUIMenuPrincipal;
 function Start(){
-	scriptMenuPrincipal = GetComponent("GUIMenuPrincipal");
 	verificador = false;
 }
 

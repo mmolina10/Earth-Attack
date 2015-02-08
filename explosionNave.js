@@ -11,7 +11,6 @@ var scriptEnemigos : BarraVidaYEnemigos;
 
 
 function Start(){
-	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	muerte = false;
 }
 

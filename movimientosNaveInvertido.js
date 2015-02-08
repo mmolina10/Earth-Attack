@@ -7,9 +7,8 @@ var scriptMenuPrincipal : GUIMenuPrincipal;
 var scriptGUIMenuPausa : GUIMenuPausa;
 var h : float;
 var v : float;
+
 function Start(){
-	scriptMenuPrincipal = GetComponent("GUIMenuPrincipal");
-	scriptGUIMenuPausa = GetComponent("GUIMenuPausa");
 	verificador = false;
 }
 
@@ -46,7 +45,6 @@ function Update(){
 	}
 	h = Input.GetAxis("Vertical"); 
 	v = Input.GetAxis("Horizontal"); 
-	
 	transform.localEulerAngles.x = h*30;
     transform.localEulerAngles.z =  -v*5; 
   

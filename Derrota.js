@@ -11,7 +11,6 @@ var estilo : GUISkin;
 static var derrota : boolean;
 
 function Start () {
-	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	AudioListener.volume = 1;
 	Screen.showCursor = false;
 	pauseEnabled = false;
@@ -38,6 +37,7 @@ function OnGUI(){
 
 		if(GUI.Button(Rect(Screen.width /2 - 120,Screen.height /2 - 80,250,50), "Volver a jugar")){
 			//Vuelve al juego
+			scriptEnemigos.imagenGolpe.SetActive(false);
 			scriptEnemigos.muertos = 0;
 			Application.LoadLevel(Application.loadedLevel);
 		}	

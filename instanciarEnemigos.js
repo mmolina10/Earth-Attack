@@ -11,7 +11,6 @@ private var numAnterior : float;
 var scriptEnemigos : BarraVidaYEnemigos;
 
 function Start(){
-	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	GenerarEnemigos();
 }
 

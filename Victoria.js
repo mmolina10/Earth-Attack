@@ -12,8 +12,6 @@ static var victoria : boolean;
 var scriptDerrota : Derrota;
 
 function Start () {
-	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
-	scriptDerrota = GetComponent("Derrota");
 	AudioListener.volume = 1;
 	Screen.showCursor = false;
 	pauseEnabled = false;
