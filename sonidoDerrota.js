@@ -1,12 +1,15 @@
 ﻿#pragma strict
-public var audioDerrota : AudioClip;
+public var audioDerrota : AudioSource;
 var scriptDerrota : Derrota;
+
+function Start() {
+	audioDerrota = GetComponent.<AudioSource>();
+}
 
 function Update () {
 	if(scriptDerrota.derrota == true){
-		if(!audio.isPlaying){
-			audio.clip = audioDerrota;
-			audio.Play();
+		if(!audioDerrota.isPlaying){
+			audioDerrota.Play();
 		}
 	}
 }

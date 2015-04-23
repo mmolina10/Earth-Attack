@@ -10,23 +10,23 @@ function Start(){
 
 function FixedUpdate () {
 	if(Input.GetButton("Jump")){
-		rigidbody.AddRelativeForce (Vector3.forward * velocidad,ForceMode.Impulse);
+		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.forward * velocidad,ForceMode.Impulse);
 		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)){
-			rigidbody.AddRelativeForce (Vector3.right* velocidad,ForceMode.Impulse);
+			this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.right* velocidad,ForceMode.Impulse);
 		}
 		else if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)){
-			rigidbody.AddRelativeForce (Vector3.left* velocidad,ForceMode.Impulse);
+			this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.left* velocidad,ForceMode.Impulse);
 		}
 	}
 	else if(Input.GetButton("Jump")){
-		rigidbody.AddRelativeForce (Vector3.zero,ForceMode.Impulse);
+		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.zero,ForceMode.Impulse);
 	}
 	
 	else if(Input.GetKey(KeyCode.Z)){
-		rigidbody.AddRelativeForce (Vector3.back * velocidad,ForceMode.Impulse);
+		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.back * velocidad,ForceMode.Impulse);
 	}
 	else if(Input.GetKeyUp(KeyCode.Z)){
-		rigidbody.AddRelativeForce (Vector3.zero);
+		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.zero);
 	}
 }
 

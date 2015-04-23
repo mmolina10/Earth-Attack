@@ -38,6 +38,6 @@
     function Start ()
     {
     // Make the rigid body not change rotation
-    if (rigidbody)
-    rigidbody.freezeRotation = true;
+    if (this.GetComponent.<Rigidbody>())
+    	this.GetComponent.<Rigidbody>().freezeRotation = true;
     }

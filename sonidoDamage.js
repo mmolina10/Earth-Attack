@@ -1,9 +1,14 @@
 ﻿#pragma strict
 var scriptEnemigos : BarraVidaYEnemigos;
+public var audioDamage : AudioSource;
+
+function Start() {
+	audioDamage = GetComponent.<AudioSource>();
+}
 
 function Update () {
 	if(scriptEnemigos.comprobador == true){
-		audio.Play();
+		audioDamage.Play();
 		scriptEnemigos.comprobador = false;
 	}
 }

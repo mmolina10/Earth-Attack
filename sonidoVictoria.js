@@ -1,12 +1,15 @@
 ﻿#pragma strict
-public var audioVictoria : AudioClip;
+public var audioVictoria : AudioSource;
 var scriptVictoria : Victoria;
+
+function Start() {
+	audioVictoria = GetComponent.<AudioSource>();
+}
 
 function Update () {
 	if(scriptVictoria.victoria == true){
-		if(!audio.isPlaying){
-			audio.clip = audioVictoria;
-			audio.Play();
+		if(!audioVictoria.isPlaying){
+			audioVictoria.Play();
 		}
 	}
 }

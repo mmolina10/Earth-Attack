@@ -13,7 +13,7 @@ function Start(){
 	scriptExplosionNave = GetComponent("explosionNave");
 	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	scriptMenuPrincipal = GetComponent("GUIMenuPrincipal");
-	Screen.showCursor = false;
+	Cursor.visible = false;
 	pauseEnabled = false;
 	AudioListener.volume = 1;
 }
@@ -35,7 +35,7 @@ function OnGUI(){
 				pauseEnabled = false;
 				Time.timeScale = 1;
 				AudioListener.volume = 1;
-				Screen.showCursor = false;	
+				Cursor.visible = false;	
 				GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = true;	
 			}
 		}	
@@ -124,7 +124,7 @@ function Update(){
 			pauseEnabled = true;
 			AudioListener.volume = 0;
 			Time.timeScale = 0;
-			Screen.showCursor = true;
+			Cursor.visible = true;
 		}
 	}
 }

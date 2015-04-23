@@ -13,7 +13,7 @@ var scriptDerrota : Derrota;
 
 function Start () {
 	AudioListener.volume = 1;
-	Screen.showCursor = false;
+	Cursor.visible = false;
 	pauseEnabled = false;
 	victoria = false;
 }
@@ -62,7 +62,7 @@ function Derrota(){
 				pauseEnabled = true;
 				AudioListener.volume = 0;
 				Time.timeScale = 0;
-				Screen.showCursor = true;
+				Cursor.visible = true;
 			}
 		}
 	}
