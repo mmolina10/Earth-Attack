@@ -10,6 +10,7 @@ var pauseEnabled;
 var estilo : GUISkin;
 static var victoria : boolean;
 var scriptDerrota : Derrota;
+private var _connector : DBConnector;
 
 function Start () {
 	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
@@ -19,6 +20,10 @@ function Start () {
 	Screen.showCursor = false;
 	pauseEnabled = false;
 	victoria = false;
+	_connector = gameObject.AddComponent.<DBConnector>();
+	_connector.OpenDB("URI=file:"+ Application.dataPath + "/db_earth_attack.s3db");
+	_connector.InsertData('Marc',2.0000, 40, 10, 20000);
+	_connector.CloseDB();
 }
 
 function Update () {
