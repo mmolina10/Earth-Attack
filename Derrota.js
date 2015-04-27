@@ -1,26 +1,34 @@
 ﻿#pragma strict
-
 var PosX:int = 150;
 var PosY:int = 50;
 var PosX1:int = 300;
 var PosY1:int = 300;
 private var mensaje : String = "¡Fallaste!";
 var scriptEnemigos : BarraVidaYEnemigos;
+var scriptPuntuacion : Puntuacion;
+var scriptGolpe : TexturaGolpe;
 var pauseEnabled;
 var estilo : GUISkin;
 static var derrota : boolean;
+private var scriptCronometro : Cronometro;
+private var cronometro : GameObject;
+private var puntuacion : GameObject;
 
 function Start () {
+	cronometro = GameObject.Find("Cronometro");
+	puntuacion = GameObject.Find("Puntuacion");
+	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
+	scriptGolpe = GetComponent("TexturaGolpe");
+	scriptCronometro = cronometro.GetComponent("Cronometro");
+	scriptPuntuacion = cronometro.GetComponent("Puntuacion");
 	AudioListener.volume = 1;
-	Cursor.visible = false;
+	Screen.showCursor = false;
 	pauseEnabled = false;
 	derrota = false;
 }
 
 function Update () {
-	if(scriptEnemigos.energiaJugador == 0 || GameObject.Find("Nave") == null){
-		RetardoYMenu();
-	}
+	RetardoYMenu();
 }
 
 function OnGUI(){
@@ -37,7 +45,6 @@ function OnGUI(){
 
 		if(GUI.Button(Rect(Screen.width /2 - 120,Screen.height /2 - 80,250,50), "Volver a jugar")){
 			//Vuelve al juego
-			scriptEnemigos.imagenGolpe.SetActive(false);
 			scriptEnemigos.muertos = 0;
 			Application.LoadLevel(Application.loadedLevel);
 		}	
@@ -52,14 +59,22 @@ function OnGUI(){
 }
 
 function RetardoYMenu(){
+	if(scriptEnemigos.vidas == 0 || GameObject.Find("Nave") == null){
+		scriptCronometro.guiTiempo = 0;
+		scriptCronometro.cronometroTexto.text = "00:00:00";
+		scriptPuntuacion.puntuacion = 0;
+		scriptPuntuacion.puntuacionTexto.text = "Puntos: " + scriptPuntuacion.puntuacion.ToString();
+		scriptEnemigos.vidas = 0;
+		scriptEnemigos.tantoPorCiento = 0;
 		scriptEnemigos.energiaJugador = 0;
 		if(pauseEnabled == false){
 			derrota = true;
 			yield WaitForSeconds(2);
-			scriptEnemigos.imagenGolpe.SetActive(false);
+			scriptGolpe.text = null;
 			pauseEnabled = true;
 			AudioListener.volume = 0;
 			Time.timeScale = 0;
-			Cursor.visible = true;
+			Screen.showCursor = true;
 		}
+	}
 }

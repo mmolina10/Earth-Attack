@@ -1,14 +1,14 @@
 ﻿#pragma strict
 var scriptEnemigos : BarraVidaYEnemigos;
-public var audioDamage : AudioSource;
-
-function Start() {
-	audioDamage = GetComponent.<AudioSource>();
+var scriptTexturaGolpe : TexturaGolpe;
+function Start () {
+	scriptTexturaGolpe = GetComponent("TexturaGolpe");
+	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 }
 
 function Update () {
-	if(scriptEnemigos.comprobador == true){
-		audioDamage.Play();
-		scriptEnemigos.comprobador = false;
+	if(scriptEnemigos.comprobador2 == true){
+		audio.Play();
+		scriptEnemigos.comprobador2 = false;
 	}
 }

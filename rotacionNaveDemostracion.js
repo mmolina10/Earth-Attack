@@ -1,9 +1,9 @@
 ﻿#pragma strict
-var velocidadRotacion : float;
+var velocidadRotacion : float = 1;
 function Start () {
-	velocidadRotacion = 20f;
+
 }
 
 function Update () {
-	transform.Rotate(0 * Time.deltaTime,velocidadRotacion * Time.deltaTime,0 * Time.deltaTime);
+	transform.Rotate(0,velocidadRotacion,0 * Time.deltaTime);
 }

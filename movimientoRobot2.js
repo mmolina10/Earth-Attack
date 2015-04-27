@@ -5,7 +5,7 @@ function Start () {
 }
 
 function FixedUpdate () {
-	this.GetComponent.<Rigidbody>().AddForce(Vector3.left * velocidad,ForceMode.Impulse);
+	rigidbody.AddForce(Vector3.left * velocidad,ForceMode.Impulse);
 }
 
 

@@ -5,28 +5,29 @@ private var velocidad : int = 170;
 public var velocidadCamara : int = 80;
 var scriptMenuPrincipal : GUIMenuPrincipal;
 function Start(){
+	scriptMenuPrincipal = GetComponent("GUIMenuPrincipal");
 	verificador = false;
 }
 
 function FixedUpdate () {
 	if(Input.GetButton("Jump")){
-		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.forward * velocidad,ForceMode.Impulse);
+		rigidbody.AddRelativeForce (Vector3.forward * velocidad,ForceMode.Impulse);
 		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)){
-			this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.right* velocidad,ForceMode.Impulse);
+			rigidbody.AddRelativeForce (Vector3.right* velocidad,ForceMode.Impulse);
 		}
 		else if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)){
-			this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.left* velocidad,ForceMode.Impulse);
+			rigidbody.AddRelativeForce (Vector3.left* velocidad,ForceMode.Impulse);
 		}
 	}
 	else if(Input.GetButton("Jump")){
-		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.zero,ForceMode.Impulse);
+		rigidbody.AddRelativeForce (Vector3.zero,ForceMode.Impulse);
 	}
 	
 	else if(Input.GetKey(KeyCode.Z)){
-		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.back * velocidad,ForceMode.Impulse);
+		rigidbody.AddRelativeForce (Vector3.back * velocidad,ForceMode.Impulse);
 	}
 	else if(Input.GetKeyUp(KeyCode.Z)){
-		this.GetComponent.<Rigidbody>().AddRelativeForce (Vector3.zero);
+		rigidbody.AddRelativeForce (Vector3.zero);
 	}
 }
 

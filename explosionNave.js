@@ -8,15 +8,15 @@ var maxPitch : float = 2.0;
 private var tiempo : float = 0;
 static var muerte : boolean;
 var scriptEnemigos : BarraVidaYEnemigos;
-var audioEfecto : AudioSource;
+
 
 function Start(){
+	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	muerte = false;
-	audioEfecto = GetComponent.<AudioSource>();
 }
 
 function OnCollisionEnter(colision : Collision){
-	if(colision.gameObject.tag == "Terreno" || colision.gameObject.tag == "fuego" || colision.gameObject.tag == "enemigo"){
+	if(colision.gameObject.tag == "Terreno" || colision.gameObject.tag == "fuego" || colision.gameObject.tag == "objetosMarcianos" || colision.gameObject.tag == "enemigo"){
 		if (colision.relativeVelocity.magnitude > Strength){
 			Instantiate(particulas, transform.position, transform.rotation);
 			Destroy(this.gameObject);
@@ -27,13 +27,13 @@ function OnCollisionEnter(colision : Collision){
 
 
 function FixedUpdate(){
-	if(scriptEnemigos.muertos == 40 || scriptEnemigos.energiaJugador == 0){
-		audioEfecto.pitch = 0;
-	}
-	else{
-		var currentSpeed = this.GetComponent.<Rigidbody>().velocity.magnitude;
-		audioEfecto.pitch = minPitch + ((currentSpeed)/maxPitch); 
-	}
+if(scriptEnemigos.muertos == 40 || scriptEnemigos.vidas == 0){
+	audio.pitch = 0;
+}
+else{
+	var currentSpeed = rigidbody.velocity.magnitude;
+	audio.pitch = minPitch + ((currentSpeed)/maxPitch); 
+}
 }
 
 function OnCollisionStay(colision : Collision){
@@ -56,6 +56,5 @@ function OnCollisionStay(colision : Collision){
 		}
 	}
 }
-
 
 

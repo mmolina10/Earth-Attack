@@ -13,7 +13,7 @@ function Start(){
 	scriptExplosionNave = GetComponent("explosionNave");
 	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	scriptMenuPrincipal = GetComponent("GUIMenuPrincipal");
-	Cursor.visible = false;
+	Screen.showCursor = false;
 	pauseEnabled = false;
 	AudioListener.volume = 1;
 }
@@ -35,7 +35,7 @@ function OnGUI(){
 				pauseEnabled = false;
 				Time.timeScale = 1;
 				AudioListener.volume = 1;
-				Cursor.visible = false;	
+				Screen.showCursor = false;	
 				GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = true;	
 			}
 		}	
@@ -119,12 +119,12 @@ function OnGUI(){
 function Update(){
 	//boton que llama el menu
 	
-	if(Input.GetKeyDown(KeyCode.P) && scriptMensajes.dialogos == scriptMensajes.iDialogueCnt && scriptExplosionNave.muerte == false && scriptEnemigos.muertos < 40 && scriptEnemigos.energiaJugador > 0){
+	if(Input.GetKeyDown(KeyCode.P) && scriptMensajes.Dialogos == scriptMensajes.iDialogueCnt && scriptExplosionNave.muerte == false && scriptEnemigos.muertos < 40 && scriptEnemigos.vidas > 0){
 		if(pauseEnabled == false){
 			pauseEnabled = true;
 			AudioListener.volume = 0;
 			Time.timeScale = 0;
-			Cursor.visible = true;
+			Screen.showCursor = true;
 		}
 	}
 }

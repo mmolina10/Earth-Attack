@@ -1,19 +1,22 @@
 ﻿#pragma strict
-import UnityEngine.UI.Image;
 var PosX:int = 150;
 var PosY:int = 50;
 var PosX1:int = 300;
 var PosY1:int = 300;
 private var mensaje : String = "¡Victoria!";
 var scriptEnemigos : BarraVidaYEnemigos;
+var scriptGolpe : TexturaGolpe;
 var pauseEnabled;
 var estilo : GUISkin;
 static var victoria : boolean;
 var scriptDerrota : Derrota;
 
 function Start () {
+	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
+	scriptGolpe = GetComponent("TexturaGolpe");
+	scriptDerrota = GetComponent("Derrota");
 	AudioListener.volume = 1;
-	Cursor.visible = false;
+	Screen.showCursor = false;
 	pauseEnabled = false;
 	victoria = false;
 }
@@ -58,11 +61,11 @@ function Derrota(){
 			if(pauseEnabled == false){
 				victoria = true;
 				yield WaitForSeconds(0.5);
-				scriptEnemigos.imagenGolpe.SetActive(false);
+				scriptGolpe.text = null;
 				pauseEnabled = true;
 				AudioListener.volume = 0;
 				Time.timeScale = 0;
-				Cursor.visible = true;
+				Screen.showCursor = true;
 			}
 		}
 	}

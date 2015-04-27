@@ -1,13 +1,12 @@
 ﻿#pragma strict
 var scriptDisparo : disparo;
-var sonidoDisparo : AudioSource;
 
-function Start() {
-	sonidoDisparo = GetComponent.<AudioSource>();
+function Start () {
+	scriptDisparo = GetComponent("disparo");
 }
 
 function Update () {
 	if(scriptDisparo.verificadorSonido == false){
-		sonidoDisparo.Play();
+		audio.Play();
 	}
 }
