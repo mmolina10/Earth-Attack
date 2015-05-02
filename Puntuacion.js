@@ -18,10 +18,10 @@ function Start () {
 }
 
 function Update () {
-	if(scriptDestruirRobot1.verificador == 1 || scriptDestruirRobot2.verificador == 1 || scriptDestruirAstronauta.verificador == 1){
-		scriptDestruirRobot1.verificador = 0;
-		scriptDestruirRobot2.verificador = 0;
-		scriptDestruirAstronauta.verificador = 0;
+	if(scriptDestruirRobot1.verificador == 2 || scriptDestruirRobot2.verificador == 2 || scriptDestruirAstronauta.verificador == 2){
+		scriptDestruirRobot1.verificador = 3;
+		scriptDestruirRobot2.verificador = 3;
+		scriptDestruirAstronauta.verificador = 3;
 		if(scriptBarraVidaYEnemigos.vidas == 10){
 			puntuacion += 250;
 		}else if(scriptBarraVidaYEnemigos.vidas >= 8 && scriptCronometro.guiTiempo < 30.00000){

@@ -39,13 +39,10 @@ function OnGUI(){
 		if(GameObject.Find("Nave") != null){	
 			GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = false;
 		}
-// botones del menu
 		
 // Resumen
-
+//Vuelve al juego
 		if(GUI.Button(Rect(Screen.width /2 - 120,Screen.height /2 - 80,250,50), "Volver a jugar")){
-			//Vuelve al juego
-			scriptEnemigos.muertos = 0;
 			Application.LoadLevel(Application.loadedLevel);
 		}	
 
@@ -61,6 +58,7 @@ function OnGUI(){
 function RetardoYMenu(){
 	if(scriptEnemigos.vidas == 0 || GameObject.Find("Nave") == null){
 		scriptCronometro.guiTiempo = 0;
+		scriptEnemigos.muertos = 0;
 		scriptCronometro.cronometroTexto.text = "00:00:00";
 		scriptPuntuacion.puntuacion = 0;
 		scriptPuntuacion.puntuacionTexto.text = "Puntos: " + scriptPuntuacion.puntuacion.ToString();
