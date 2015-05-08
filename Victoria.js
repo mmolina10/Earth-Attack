@@ -98,7 +98,7 @@ function OnGUI(){
 
 function Victoria(){
 	if(scriptDerrota.derrota == false){
-		if(scriptEnemigos.muertos == 1){
+		if(scriptEnemigos.muertos == 40){
 			if(pauseEnabled == false){
 				victoria = true;
 				yield WaitForSeconds(0.5);
