@@ -9,9 +9,9 @@ static var tantoPorCiento : int;
 static var verificador : boolean = false;
 static var muertos : int;
 var estilo : GUISkin;
-var scriptDestruirAstronauta : destruirAstronauta;
-var scriptDestruirRobot1 : destruirRobot1;
-var scriptDestruirRobot2 : destruirRobot2;
+var scriptDestruirAstronauta : DestruirAstronauta;
+var scriptDestruirRobot1 : DestruirRobot1;
+var scriptDestruirRobot2 : DestruirRobot2;
 var scriptTexturaGolpe : TexturaGolpe;
 public var textura : Texture2D;
 static var comprobador2 : boolean;
@@ -20,9 +20,9 @@ var scriptDerrota : Derrota;
 
 function Start(){
 	scriptContacto = GetComponent("ContactoConMeta");
-	scriptDestruirAstronauta = GetComponent("destruirAstronauta");
-	scriptDestruirRobot1 = GetComponent("destruirRobot1");
-	scriptDestruirRobot2 = GetComponent("destruirRobot2");
+	scriptDestruirAstronauta = GetComponent("DestruirAstronauta");
+	scriptDestruirRobot1 = GetComponent("DestruirRobot1");
+	scriptDestruirRobot2 = GetComponent("DestruirRobot2");
 	scriptTexturaGolpe = GetComponent("TexturaGolpe");
 	scriptDerrota = GetComponent("Derrota");
 	vidas = 10;

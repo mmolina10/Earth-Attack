@@ -37,7 +37,7 @@ function OnGUI(){
 		GUI.Label(Rect (Screen.width/2.2-(PosX/2), Screen.height/5-(PosY/0.7),500, 500),mensaje);
 		GUI.Box(Rect (Screen.width/2-(PosX1/2), Screen.height/2-(PosY1/2), PosX1, PosY1),"");
 		if(GameObject.Find("Nave") != null){	
-			GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = false;
+			GameObject.Find("Nave").GetComponent(MovimientosRatonNave).enabled = false;
 		}
 		
 // Resumen

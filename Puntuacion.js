@@ -2,9 +2,9 @@
 
 private var scriptBarraVidaYEnemigos : BarraVidaYEnemigos;
 private var scriptCronometro : Cronometro;
-private var scriptDestruirRobot1 : destruirRobot1;
-private var scriptDestruirRobot2 : destruirRobot2;
-private var scriptDestruirAstronauta : destruirAstronauta;
+private var scriptDestruirRobot1 : DestruirRobot1;
+private var scriptDestruirRobot2 : DestruirRobot2;
+private var scriptDestruirAstronauta : DestruirAstronauta;
 static var puntuacion : float = 0;
 private var cronometro : GameObject;
 public static var puntuacionTexto : UnityEngine.UI.Text;

@@ -1,7 +1,7 @@
 ﻿var PosX1:int = 300;
 var PosY1:int = 350;
 var scriptMensajes : GUIMensajes; 
-var scriptExplosionNave : explosionNave; 
+var scriptExplosionNave : ExplosionNave; 
 static var pauseEnabled;
 private var showGraphicsDropDown = false;
 var scriptEnemigos : BarraVidaYEnemigos;
@@ -10,7 +10,7 @@ var scriptMenuPrincipal : GUIMenuPrincipal;
 
 function Start(){
 	scriptMensajes = GetComponent("GUIMensajes");
-	scriptExplosionNave = GetComponent("explosionNave");
+	scriptExplosionNave = GetComponent("ExplosionNave");
 	scriptEnemigos = GetComponent("BarraVidaYEnemigos");
 	scriptMenuPrincipal = GetComponent("GUIMenuPrincipal");
 	Screen.showCursor = false;
@@ -22,7 +22,7 @@ function OnGUI(){
 	
 	if(pauseEnabled == true){
 		GUI.Box(Rect (Screen.width/2-(PosX1/2), Screen.height/2-(PosY1/2), PosX1, PosY1),"");
-		GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = false;
+		GameObject.Find("Nave").GetComponent(MovimientosRatonNave).enabled = false;
 // botones del menu
 		
 // Resumen
@@ -36,7 +36,7 @@ function OnGUI(){
 				Time.timeScale = 1;
 				AudioListener.volume = 1;
 				Screen.showCursor = false;	
-				GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = true;	
+				GameObject.Find("Nave").GetComponent(MovimientosRatonNave).enabled = true;	
 			}
 		}	
 		

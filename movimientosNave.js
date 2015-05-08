@@ -33,11 +33,11 @@ function FixedUpdate () {
 
 function Update(){	
 	if(scriptMenuPrincipal.mensaje.Equals("Normal")){
-		this.GetComponent(movimientosNave).enabled = true;
+		this.GetComponent(MovimientosNave).enabled = true;
 	}
 	else{
-		this.GetComponent(movimientosNave).enabled = false;
-		GameObject.Find("Nave").GetComponent(movimientosNaveInvertido).enabled = true;
+		this.GetComponent(MovimientosNave).enabled = false;
+		GameObject.Find("Nave").GetComponent(MovimientosNaveInvertido).enabled = true;
 	}
 	var h = Input.GetAxis("Vertical"); 
 	var v = Input.GetAxis("Horizontal"); 

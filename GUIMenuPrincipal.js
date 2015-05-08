@@ -15,6 +15,7 @@ private var achuraXButtonsGraphics : float;
 private var alturaYButtonsGraphics : float;
 
 function Start () {
+	Screen.SetResolution(800,600,true);
 	anchuraXButtons = 320;
 	alturaYButtons = 50;
 	anchuraXBox = 350;

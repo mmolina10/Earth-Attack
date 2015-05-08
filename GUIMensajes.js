@@ -18,7 +18,7 @@ aDialogs[3] = "Un consejo: evita el contacto con ellos, ya que explotarás.";
 
 iDialogueCnt = aDialogs.length;
 
-GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = false;
+GameObject.Find("Nave").GetComponent(MovimientosRatonNave).enabled = false;
 Time.timeScale = 0;
 
 }
@@ -34,7 +34,7 @@ Time.timeScale = 0;
 }
 else
 {
-GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = true;
+GameObject.Find("Nave").GetComponent(MovimientosRatonNave).enabled = true;
 Time.timeScale = 1;
 }
 }

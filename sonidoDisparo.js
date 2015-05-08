@@ -1,8 +1,8 @@
 ﻿#pragma strict
-var scriptDisparo : disparo;
+var scriptDisparo : Disparo;
 
 function Start () {
-	scriptDisparo = GetComponent("disparo");
+	scriptDisparo = GetComponent("Disparo");
 }
 
 function Update () {

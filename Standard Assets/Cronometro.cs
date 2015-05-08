@@ -5,9 +5,9 @@ public class Cronometro : MonoBehaviour {
 	private float comienzoTiempo;
 	string textoTiempo;
 	public float guiTiempo;
-	float minutos;
-	float segundos;
-	float fraccion;
+	private float minutos;
+	private float segundos;
+	private float fraccion;
 	public UnityEngine.UI.Text cronometroTexto;
 	// Use this for initialization
 	void Start () {

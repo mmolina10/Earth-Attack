@@ -6,7 +6,7 @@ var PosY1:int = 300;
 private var mensaje : String = "¡Victoria!";
 var scriptEnemigos : BarraVidaYEnemigos;
 var scriptGolpe : TexturaGolpe;
-var pauseEnabled;
+private var pauseEnabled;
 var estilo : GUISkin;
 static var victoria : boolean;
 var scriptDerrota : Derrota;
@@ -44,7 +44,7 @@ function OnGUI(){
 		GUI.Box(Rect (Screen.width/2-(PosX1/2), Screen.height/2-(PosY1/2), PosX1, PosY1),"");
 		if(victoria == true){
 			if(scriptDerrota.derrota == false){
-				GameObject.Find("Nave").GetComponent(movimientosRatonNave).enabled = false;
+				GameObject.Find("Nave").GetComponent(MovimientosRatonNave).enabled = false;
 			}
 		}
 	
@@ -62,19 +62,31 @@ function OnGUI(){
 			//Vuelve al juego
 			if(!textFieldStringNombre.Equals("")){
 				_connector = gameObject.AddComponent.<DBConnector>();
-				_connector.OpenDB("URI=file:"+ Application.dataPath + "/db_earth_attack.s3db");
+				_connector.OpenDB("URI=file:" + Application.dataPath + "\\DB\\db_earth_attack.s3db");
 				_connector.InsertData(textFieldStringNombre,scriptCronometro.guiTiempo, scriptEnemigos.muertos, scriptEnemigos.vidas, scriptPuntuacion.puntuacion);
 				_connector.CloseDB();
 				scriptEnemigos.muertos = 0;
 				Application.LoadLevel(Application.loadedLevel);
 			}
 		}	
-
-// volver a menu principal
-		if(GUI.Button(Rect(Screen.width /2 - 120,Screen.height /2 - -30,250,50), "Volver al menú principal" )){
+//Ver ranking
+		if(GUI.Button(Rect(Screen.width /2 - 120,Screen.height /2 - 20,250,50), "Ranking")){
+			//Vuelve al juego
 			if(!textFieldStringNombre.Equals("")){
 				_connector = gameObject.AddComponent.<DBConnector>();
-				_connector.OpenDB("URI=file:"+ Application.dataPath + "/db_earth_attack.s3db");
+				_connector.OpenDB("URI=file:" + Application.dataPath + "\\DB\\db_earth_attack.s3db");
+				_connector.InsertData(textFieldStringNombre,scriptCronometro.guiTiempo, scriptEnemigos.muertos, scriptEnemigos.vidas, scriptPuntuacion.puntuacion);
+				_connector.CloseDB();
+				scriptEnemigos.muertos = 0;
+				Application.LoadLevel("ranking");
+			}
+		}
+
+// volver a menu principal
+		if(GUI.Button(Rect(Screen.width /2 - 120,Screen.height /2 - -40,250,50), "Volver al menú principal" )){
+			if(!textFieldStringNombre.Equals("")){
+				_connector = gameObject.AddComponent.<DBConnector>();
+				_connector.OpenDB("URI=file:" + Application.dataPath + "\\DB\\db_earth_attack.s3db");
 				_connector.InsertData(textFieldStringNombre,scriptCronometro.guiTiempo, scriptEnemigos.muertos, scriptEnemigos.vidas, scriptPuntuacion.puntuacion);
 				_connector.CloseDB();
 				scriptEnemigos.muertos = 0;
@@ -86,7 +98,7 @@ function OnGUI(){
 
 function Victoria(){
 	if(scriptDerrota.derrota == false){
-		if(scriptEnemigos.muertos == 40){
+		if(scriptEnemigos.muertos == 1){
 			if(pauseEnabled == false){
 				victoria = true;
 				yield WaitForSeconds(0.5);

@@ -35,12 +35,12 @@ function FixedUpdate () {
 
 function Update(){	
 	if(scriptMenuPrincipal.mensaje.Equals("Invertido")){
-		this.GetComponent(movimientosNaveInvertido).enabled = true;
+		this.GetComponent(MovimientosNaveInvertido).enabled = true;
 		
 	}
 	else {
-		this.GetComponent(movimientosNaveInvertido).enabled = false;
-		GameObject.Find("Nave").GetComponent(movimientosNave).enabled = true;
+		this.GetComponent(MovimientosNaveInvertido).enabled = false;
+		GameObject.Find("Nave").GetComponent(MovimientosNave).enabled = true;
 	}
 	var h = Input.GetAxis("Vertical"); 
 	var v = Input.GetAxis("Horizontal"); 

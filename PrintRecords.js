@@ -12,10 +12,11 @@ private var textoTiempo : String;
 private var minutos : float;
 private var segundos : float;
 private var fraccion : float;
+private var tiempoRegistro : float;
 
 function Start () {
 	_connector = gameObject.AddComponent.<DBConnector>();
-	_connector.OpenDB("URI=file:"+ Application.dataPath + "/db_earth_attack.s3db");
+	_connector.OpenDB("URI=file:" + Application.dataPath + "\\DB\\db_earth_attack.s3db");
 	registros = _connector.SelectRegistrosRanking();
 	textsChildrens = GameObject.Find("Primero").GetComponentsInChildren.<UI.Text>();
 	textsChildrens += GameObject.Find("Segundo").GetComponentsInChildren.<UI.Text>();
@@ -27,14 +28,14 @@ function Start () {
 	textsChildrens += GameObject.Find("Octavo").GetComponentsInChildren.<UI.Text>();
 	textsChildrens += GameObject.Find("Noveno").GetComponentsInChildren.<UI.Text>();
 	textsChildrens += GameObject.Find("Decimo").GetComponentsInChildren.<UI.Text>();
-	var p : float;
+	
 	for(var i : int = 0; i < registros.length; i++){
 		if(registros[i] != null){
 			if(i == 3 || i == 7 || i == 11 || i == 15 || i == 19 || i == 23 || i == 27 || i == 31 || i == 35 || i == 39){
-				p = registros[i];
-				minutos = p / 120;
-				segundos = p % 60;
-				fraccion = (p * 100) % 100;
+				tiempoRegistro = registros[i];
+				minutos = tiempoRegistro / 120;
+				segundos = tiempoRegistro % 60;
+				fraccion = (tiempoRegistro * 100) % 100;
 				textoTiempo = String.Format ("{0:00}:{1:00}:{2:00}", minutos, segundos, fraccion);
 				textsChildrens[i].text = textoTiempo;
 			}else{

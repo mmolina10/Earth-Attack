@@ -15,7 +15,7 @@ public class DBConnector : MonoBehaviour {
 	}
 
 	public object[] SelectRegistrosRanking(){
-		_query = "SELECT nombre, vidas, puntuacion, tiempo FROM usuarios ORDER BY puntuacion DESC, tiempo ASC, nombre  limit 10";
+		_query = "SELECT nombre, vidas, puntuacion, tiempo FROM usuarios ORDER BY puntuacion DESC, tiempo ASC, nombre limit 10";
 		_command = _conexion.CreateCommand ();
 		_command.CommandText = _query;
 		_reader = _command.ExecuteReader ();
